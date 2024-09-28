@@ -23,4 +23,12 @@ jobs:
       - name: Setup Angular
         run: |
           npm install -g @angular/cli -y
-          echo ng version
+          echo "ng version"
+      - name: Install dependencies
+        run: |
+          cd githubactions
+          npm i
+      - name: run tests
+        run: |
+          cd githubactions
+          npm run test
