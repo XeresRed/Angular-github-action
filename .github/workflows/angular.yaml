@@ -27,10 +27,6 @@ jobs:
           npm install -g @angular/cli -y
           ng version
       - name: Install dependencies
-        run: |
-          cd githubactions
-          npm i
+        run: npm i
       - name: run tests
-        run: |
-          cd githubactions
-          npm run test
+        run: npm run test
