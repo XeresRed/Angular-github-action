@@ -1,0 +1,26 @@
+name: Angular CI
+on: [push]
+
+jobs:
+  angular-test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: node
+    steps:
+      - name: Checkout
+        run: actions/checkout@v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: latest
+      - name: Setup Angular
+        run: |
+          npm install -g @angular/cli -y
+          echo ng version
