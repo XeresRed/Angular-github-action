@@ -29,4 +29,4 @@ jobs:
       - name: Install dependencies
         run: npm i
       - name: run tests
-        run: npm run test --no-watch --no-coverage
+        run: npm run test --watch=false --no-coverage
