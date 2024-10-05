@@ -8,7 +8,6 @@ permissions:
 
 jobs:
   unit-test:
-    id: test
     runs-on: ubuntu-latest # Puede ser windows, mac-2014, self-hosted
     timeout-minutes: 30
     steps:
