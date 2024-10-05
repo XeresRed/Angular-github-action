@@ -23,6 +23,8 @@ jobs:
     needs:
       - unit-test
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.0
       - name: Set up environment
         uses: ./.github/actions/setupEnv
 
@@ -36,7 +38,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: "./dist/githubactions"
+          path: "./dist"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
