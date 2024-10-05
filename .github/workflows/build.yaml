@@ -15,7 +15,8 @@ jobs:
         run: npm run test -- --watch=false --browsers=ChromeHeadless
   deploy:
     runs-on: ubuntu-latest # Puede ser windows, mac-2014, self-hosted
-    need: unit-test
+    needs:
+      - unit-test
     if: jobs.unit-test.outcome == 'success'
     steps:
       - name: Set up environment
