@@ -1,0 +1,13 @@
+name: Angular set up
+description: "Set node enviroment and install dependencies"
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4.0.4
+      with:
+        node-version: latests
+    - name: Install dependencies
+      run: npm i
+      shell: bash

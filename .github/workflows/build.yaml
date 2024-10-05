@@ -1,0 +1,37 @@
+name: Angular CI
+on: [push]
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest # Puede ser windows, mac-2014, self-hosted
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.0
+      - name: Install dependencies
+        uses: ./.github/actions/setupEnv
+      - name: Run tests
+        id: test
+        run: npm run test -- --watch=false --browsers=ChromeHeadless
+  deploy:
+    runs-on: ubuntu-latest # Puede ser windows, mac-2014, self-hosted
+    need: unit-test
+    if: jobs.unit-test.outcome == 'success'
+    steps:
+      - name: Set up environment
+        uses: ./.github/actions/setupEnv
+
+      - name: Deploy
+        if: success()
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: "./dist/githubactions"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

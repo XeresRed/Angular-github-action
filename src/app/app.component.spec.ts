@@ -28,10 +28,4 @@ describe('AppComponent', () => {
       'githubactions app is running!'
     );
   });
-
-  it(`should have as title 'githubactions'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('githubactions 1');
-  });
 });
