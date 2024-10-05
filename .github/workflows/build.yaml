@@ -23,7 +23,6 @@ jobs:
     runs-on: ubuntu-latest # Puede ser windows, mac-2014, self-hosted
     needs:
       - unit-test
-    if: jobs.test.outcome == 'success'
     steps:
       - name: Set up environment
         uses: ./.github/actions/setupEnv
