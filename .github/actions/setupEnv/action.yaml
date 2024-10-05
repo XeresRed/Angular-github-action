@@ -7,7 +7,7 @@ runs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v4.0.4
       with:
-        node-version: latests
+        node-version: latest
     - name: Install dependencies
       run: npm i
       shell: bash
