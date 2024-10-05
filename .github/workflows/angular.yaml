@@ -32,5 +32,5 @@ jobs:
         id: test
         run: npm run test -- --watch=false --browsers=ChromeHeadless
       - name: Checked
-        if: steps.test.outcome == "success"
+        if: steps.test.outcome == 'success'
         run: ls
