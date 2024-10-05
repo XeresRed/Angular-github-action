@@ -30,8 +30,7 @@ jobs:
 
       - name: Deploy
         if: success()
-        run: npm run build -- --base-href=/${{ github.event.repository.name}}
-
+        run: ng build --prod
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
